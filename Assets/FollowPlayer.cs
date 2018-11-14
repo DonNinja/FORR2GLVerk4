@@ -10,7 +10,7 @@ public class FollowPlayer : MonoBehaviour {
     private readonly float smoothFactor = 1f;
 
     public float rotationSpeedHor = 5f;
-    //public float rotationSpeedVert = 5f;
+    public float rotationSpeedVert = 5f;
 
     // Use this for initialization
     void Start () {
@@ -22,8 +22,8 @@ public class FollowPlayer : MonoBehaviour {
         Quaternion camTurnAngleHor = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeedHor, Vector3.up);
         cameraOffset = camTurnAngleHor * cameraOffset;
 
-        //Quaternion camTurnAngleVert = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * rotationSpeedVert, Vector3.left);
-        //cameraOffset = camTurnAngleVert * cameraOffset;
+        Quaternion camTurnAngleVert = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * rotationSpeedVert, Vector3.left);
+        cameraOffset = camTurnAngleVert * cameraOffset;
 
         Vector3 newPos = Player.position + cameraOffset;
 
